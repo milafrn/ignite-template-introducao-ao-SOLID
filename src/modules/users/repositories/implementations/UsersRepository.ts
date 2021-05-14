@@ -1,5 +1,3 @@
-import { response } from "express";
-
 import { User } from "../../model/User";
 import { IUsersRepository, ICreateUserDTO } from "../IUsersRepository";
 
@@ -26,8 +24,9 @@ class UsersRepository implements IUsersRepository {
     Object.assign(user, {
       name,
       email,
-      created_at: new Date(),
       admin: false,
+      created_at: new Date(),
+      updated_at: new Date(),
     });
 
     this.users.push(user);

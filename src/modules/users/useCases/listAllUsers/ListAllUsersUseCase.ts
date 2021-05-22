@@ -12,7 +12,9 @@ class ListAllUsersUseCase {
     const userAdmin = this.usersRepository.findById(user_id);
 
     if (!userAdmin.admin) {
-      throw new Error("This user not have privilege for the action");
+      throw new Error(
+        "You not have privilege for the action. You need to be an administrator to list all users."
+      );
     }
 
     return this.usersRepository.list();
